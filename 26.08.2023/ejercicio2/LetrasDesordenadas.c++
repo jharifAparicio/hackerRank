@@ -1,34 +1,45 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
 #include <iostream>
-#include <string>
-
+#include <algorithm>
 using namespace std;
 
-int main(){
-    std::string Aprendiz,Mago,Revueltas, buscar, comparar;
-    std::cin>>Aprendiz>>Mago>>Revueltas;
 
-    std::string juntos = Aprendiz + Mago;
+int main() {
+    string aprendiz,maestro,letras;
+    cin>>aprendiz>>maestro>>letras;
 
-    //buscamos y eliminamos las letras que existe
-    for (int j = 0; j < juntos.length(); j++) {
-        buscar = juntos[j];
-        for(int i = 0; i < Revueltas.length(); i++){
-            if(juntos.length() == 1){
-              cout <<"YES"<<endl;
-                break;
-            }else if(Revueltas.length() == 1 && juntos.length() != 1){
-                std::cout<<"NO"<<std::endl;
-                break;
-            }
+    string juntos = aprendiz + maestro;
+    int  contador = 0;
+    int cant = juntos.length();
 
-            comparar = Revueltas[i];
+    //int aprendiz 
+    //cout <<endl;
+    //cout << aprendiz<<endl<<maestro<<endl<<juntos<<endl<<letras<<endl;
 
-            if( comparar == buscar){
-                Revueltas.replace(Revueltas.find(comparar),1,"");
-                juntos.replace(juntos.find(comparar),1,"");
+    while (juntos.length() != 0) {
+        for(int i = 0; i <= letras.length(); i++){
+            if(letras[i] == juntos[0]){
+                letras.erase(i,1);
+                juntos.erase(0,1);
                 break;
             }
         }
+
+        contador++;
+        if(contador == cant){
+            cout<<"NO"<<endl;
+            return 0;
+        }     
     }
+
+    if(juntos.length() != 0){
+        cout<<"NO"<<endl;
+    }else{
+        cout<<"YES"<<endl;
+    }
+    
+    
     return 0;
 }
