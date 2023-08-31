@@ -11,15 +11,12 @@ int main() {
     cin>>aprendiz>>maestro>>letras;
 
     string juntos = aprendiz + maestro;
-    int  contador = 0;
+    int  contador = -1;
     int cant = juntos.length();
 
-    //int aprendiz 
-    //cout <<endl;
-    //cout << aprendiz<<endl<<maestro<<endl<<juntos<<endl<<letras<<endl;
 
     while (juntos.length() != 0) {
-        for(int i = 0; i <= letras.length(); i++){
+        for(size_t i = 0; i <= letras.length(); i++){
             if(letras[i] == juntos[0]){
                 letras.erase(i,1);
                 juntos.erase(0,1);
@@ -33,13 +30,6 @@ int main() {
             return 0;
         }     
     }
-
-    if(juntos.length() != 0){
-        cout<<"NO"<<endl;
-    }else{
-        cout<<"YES"<<endl;
-    }
-    
-    
+    cout<<"YES"<<endl;    
     return 0;
 }
